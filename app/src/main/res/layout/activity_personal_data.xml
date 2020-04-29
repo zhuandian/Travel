@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top_bar" />
+
+
+
+    <EditText
+        android:id="@+id/et_old_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="请输入原密码"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_new_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="textPassword"
+        android:hint="设置新密码"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="#fff" />
+</LinearLayout>

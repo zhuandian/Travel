@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".business.activity.ReleaseLostAndFoundActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_edittext_bg"
+        android:hint="请输入标题"
+        android:paddingLeft="10dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_edittext_bg"
+        android:gravity="start"
+        android:hint="请输入标题"
+        android:padding="10dp"
+        android:textSize="14sp" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <RadioButton
+            android:id="@+id/rb_lost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="丢失物品" />
+
+        <RadioButton
+            android:id="@+id/rb_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="捡到物品" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/tv_release"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="发 布"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

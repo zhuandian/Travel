@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".business.activity.LostAndFoundDetailActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="标题"
+                    android:textColor="@color/color_333333"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_content_title"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="neirklsaklfkklfsajklfjaklsjfklasfdfsafsadfdsfsdsdfafasjklasf"
+                    android:textColor="@color/color_69"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:text="2020-20-20"
+                    android:textColor="@color/color_69"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:text="点赞数：jsdd"
+                    android:textColor="@color/color_69"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00BCD4"
+                    android:gravity="center"
+                    android:text="丢失"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/comment_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/submit_comment_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/comment_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_background"
+                        android:gravity="top"
+                        android:hint="说出你的见解..."
+                        android:paddingLeft="5dp"
+                        android:paddingTop="3dp"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/submit_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_margin="10dp"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="发布评论"
+                        android:textColor="#f00" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/heart_share_pen"
+        app:backgroundTint="#f9b1b107" />
+</LinearLayout>
