@@ -31,7 +31,7 @@
                 android:layout_marginTop="20dp"
                 android:text="昵称"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_phone"
@@ -42,7 +42,7 @@
                 android:layout_marginTop="5dp"
                 android:text="1551230321"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_local"
@@ -53,20 +53,20 @@
                 android:layout_marginTop="5dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_lost"
+            android:id="@+id/tv_find_helper"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="丢失物品列表" />
+            android:text="寻找志愿者" />
 
         <View
             android:layout_width="match_parent"
@@ -75,13 +75,13 @@
             android:layout_marginRight="10dp" />
 
         <TextView
-            android:id="@+id/tv_found"
+            android:id="@+id/tv_match_friend"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="捡到物品列表" />
+            android:text="匹配旅友" />
 
         <View
             android:layout_width="match_parent"
@@ -90,39 +90,17 @@
             android:layout_marginRight="10dp" />
 
         <TextView
-            android:id="@+id/tv_book"
+            android:id="@+id/tv_send_help"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
-            android:text="正能量" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-
-        <TextView
-            android:id="@+id/tv_manage_user"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="管理用户" />
+            android:text="发呼救" />
 
 
-        <TextView
-            android:id="@+id/tv_more_setting"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="修改密码" />
+
+
 
         <View
             android:layout_width="match_parent"

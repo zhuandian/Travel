@@ -36,20 +36,16 @@ public class MineFragment extends BaseFragment {
     TextView tvNickName;
     @BindView(R.id.tv_phone)
     TextView tvPhone;
-    @BindView(R.id.tv_lost)
-    TextView tvLost;
-    @BindView(R.id.tv_found)
-    TextView tvFound;
-    @BindView(R.id.tv_book)
-    TextView tvBook;
-    @BindView(R.id.tv_more_setting)
-    TextView tvMoreSetting;
     @BindView(R.id.tv_logout)
     TextView tvLogout;
-    @BindView(R.id.tv_manage_user)
-    TextView tvManageUser;
     @BindView(R.id.tv_local)
     TextView tvLocal;
+    @BindView(R.id.tv_find_helper)
+    TextView tvFindHelper;
+    @BindView(R.id.tv_match_friend)
+    TextView tvMatchFriend;
+    @BindView(R.id.tv_send_help)
+    TextView tvSendHelp;
     private SharedPreferences sharedPreferences;
 
 
@@ -75,34 +71,6 @@ public class MineFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.iv_header, R.id.tv_nick_name, R.id.tv_more_setting, R.id.tv_logout, R.id.tv_lost, R.id.tv_found, R.id.tv_book, R.id.tv_manage_user})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-//            case R.id.iv_header:
-//                PictureSelectorUtils.selectImg(PictureSelector.create(this), 1);
-//                break;
-//            case R.id.tv_lost:
-//                ((MainActivity) actitity).setCurrentPage(MainActivity.PAGE_LOST);
-//                break;
-//            case R.id.tv_found:
-//                ((MainActivity) actitity).setCurrentPage(MainActivity.PAGE_FOUND);
-//                break;
-//            case R.id.tv_book:
-//                ((MainActivity) actitity).setCurrentPage(MainActivity.PAGE_TRAVEL);
-//                break;
-//            case R.id.tv_more_setting:
-//                startActivity(new Intent(actitity, PersonalDataActivity.class));
-//                break;
-            case R.id.tv_logout:
-                startActivity(new Intent(actitity, LoginActivity.class));
-                BmobUser.logOut();
-                actitity.finish();
-                break;
-//            case R.id.tv_manage_user:
-//                startActivity(new Intent(actitity, ManageUserActivity.class));
-//                break;
-        }
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -133,4 +101,20 @@ public class MineFragment extends BaseFragment {
         }
     }
 
+    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_find_helper:
+                break;
+            case R.id.tv_match_friend:
+                break;
+            case R.id.tv_send_help:
+                break;
+            case R.id.tv_logout:
+                startActivity(new Intent(actitity, LoginActivity.class));
+                BmobUser.logOut();
+                actitity.finish();
+                break;
+        }
+    }
 }

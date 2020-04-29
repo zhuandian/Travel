@@ -8,16 +8,16 @@ import cn.bmob.v3.BmobObject;
  * @date 2020-04-29.
  */
 public class FoodsAndViewsEntity extends BmobObject {
-    private String type;  //1，美食  2，美景
+    private int type;  //1，美食  2，美景
     private String title;
     private String content;
     private String url;
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
