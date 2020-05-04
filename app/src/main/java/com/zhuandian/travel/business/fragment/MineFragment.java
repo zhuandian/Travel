@@ -14,8 +14,11 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.travel.R;
+import com.zhuandian.travel.business.activity.FindHelperActivity;
 import com.zhuandian.travel.business.activity.SelectFriendActivity;
+import com.zhuandian.travel.business.activity.SendHelpActivity;
 import com.zhuandian.travel.business.login.LoginActivity;
+import com.zhuandian.travel.entity.SendHelpEntity;
 import com.zhuandian.travel.entity.UserEntity;
 import com.zhuandian.view.CircleImageView;
 
@@ -106,11 +109,13 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_find_helper:
+                startActivity(new Intent(actitity, FindHelperActivity.class));
                 break;
             case R.id.tv_match_friend:
                 startActivity(new Intent(actitity, SelectFriendActivity.class));
                 break;
             case R.id.tv_send_help:
+                startActivity(new Intent(actitity, SendHelpActivity.class));
                 break;
             case R.id.tv_logout:
                 startActivity(new Intent(actitity, LoginActivity.class));
