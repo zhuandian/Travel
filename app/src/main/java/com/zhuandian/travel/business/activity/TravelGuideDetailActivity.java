@@ -1,4 +1,4 @@
-package com.zhuandian.travel.activity;
+package com.zhuandian.travel.business.activity;
 
 import android.os.Bundle;
 import android.widget.ImageView;

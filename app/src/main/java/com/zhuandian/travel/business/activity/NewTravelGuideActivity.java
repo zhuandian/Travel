@@ -1,13 +1,11 @@
-package com.zhuandian.travel.activity;
+package com.zhuandian.travel.business.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -21,7 +19,6 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.zhuandian.base.BaseActivity;
 import com.zhuandian.travel.R;
 import com.zhuandian.travel.business.utils.PictureSelectorUtils;
-import com.zhuandian.travel.entity.FoodsAndViewsEntity;
 import com.zhuandian.travel.entity.ThemeEntity;
 import com.zhuandian.travel.entity.TravelGuideEntity;
 import com.zhuandian.travel.entity.ViewsEntity;
@@ -30,7 +27,6 @@ import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobFile;

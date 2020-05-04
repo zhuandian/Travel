@@ -10,14 +10,13 @@ import com.bumptech.glide.Glide;
 import com.zhuandian.base.BaseAdapter;
 import com.zhuandian.base.BaseViewHolder;
 import com.zhuandian.travel.R;
-import com.zhuandian.travel.activity.TravelGuideDetailActivity;
+import com.zhuandian.travel.business.activity.TravelGuideDetailActivity;
 import com.zhuandian.travel.entity.TravelGuideEntity;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.bmob.v3.http.I;
 
 /**
  * desc :

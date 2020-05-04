@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.travel.R;
-import com.zhuandian.travel.activity.NewTravelGuideActivity;
+import com.zhuandian.travel.business.activity.NewTravelGuideActivity;
 import com.zhuandian.travel.adapter.TravelGuideAdapter;
 import com.zhuandian.travel.business.utils.BaseRecyclerView;
 import com.zhuandian.travel.entity.TravelGuideEntity;
