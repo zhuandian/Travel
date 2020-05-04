@@ -1,16 +1,13 @@
-package com.zhuandian.travel.business.fragment;
-
+package com.zhuandian.travel.business.activity;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.zhuandian.base.BaseFragment;
+
+import com.zhuandian.base.BaseActivity;
 import com.zhuandian.travel.R;
-import com.zhuandian.travel.business.activity.NewTravelGuideActivity;
 import com.zhuandian.travel.adapter.TravelGuideAdapter;
-import com.zhuandian.travel.business.activity.SearchGuideActivity;
 import com.zhuandian.travel.business.utils.BaseRecyclerView;
 import com.zhuandian.travel.entity.TravelGuideEntity;
 
@@ -23,13 +20,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-
-/**
- * desc :
- * author：xiedong
- * date：2020/03/21
- */
-public class TravelGuideFragment extends BaseFragment {
+public class GuideSearchResultActivity extends BaseActivity {
 
     @BindView(R.id.brv_list)
     BaseRecyclerView brvGoodsList;
@@ -39,29 +30,32 @@ public class TravelGuideFragment extends BaseFragment {
     TextView tvTitle;
     @BindView(R.id.tv_right)
     TextView tvRight;
-    @BindView(R.id.tv_new)
-    TextView tvNew;
-    @BindView(R.id.tv_search)
-    TextView tvSearch;
+
     private List<TravelGuideEntity> mDatas = new ArrayList<>();
     private TravelGuideAdapter travelGuideAdapter;
     private int currentCount = -10;
+    private String viewsLocal;
+    private String viewsTheme;
+    private int timeLevel;
+    private int moneyLevel;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_travel_guide;
+        return R.layout.activity_guide_search_result;
     }
 
     @Override
-    protected void initView() {
-        ivBack.setVisibility(View.GONE);
-        tvTitle.setText("旅游攻略");
-        travelGuideAdapter = new TravelGuideAdapter(mDatas, actitity);
+    protected void setUpView() {
+        viewsLocal = getIntent().getStringExtra("viewsLocal");
+        viewsTheme = getIntent().getStringExtra("viewsTheme");
+        timeLevel = getIntent().getIntExtra("timeLevel", 1);
+        moneyLevel = getIntent().getIntExtra("moneyLevel", 1);
+        tvTitle.setText("搜索结果");
+        travelGuideAdapter = new TravelGuideAdapter(mDatas, this);
         brvGoodsList.setRecyclerViewAdapter(travelGuideAdapter);
         loadDatas();
         initRefreshListener();
     }
-
 
     private void initRefreshListener() {
         brvGoodsList.setRefreshListener(new BaseRecyclerView.OnRefreshListener() {
@@ -90,6 +84,10 @@ public class TravelGuideFragment extends BaseFragment {
         BmobQuery<TravelGuideEntity> query = new BmobQuery<>();
         query.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
         query.order("-updatedAt");
+        query.addWhereEqualTo("viewsLocal",viewsLocal);
+        query.addWhereEqualTo("viewsTheme",viewsTheme);
+        query.addWhereEqualTo("timeLevel",timeLevel);
+        query.addWhereEqualTo("moneyLevel",moneyLevel);
         query.setLimit(10);
         query.setSkip(currentCount);
         query.findObjects(new FindListener<TravelGuideEntity>() {
@@ -108,18 +106,8 @@ public class TravelGuideFragment extends BaseFragment {
         });
     }
 
-
-    @OnClick({R.id.tv_new, R.id.tv_search})
+    @OnClick({R.id.iv_back})
     public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.tv_new:
-                startActivity(new Intent(actitity, NewTravelGuideActivity.class));
-                break;
-            case R.id.tv_search:
-                startActivity(new Intent(actitity, SearchGuideActivity.class));
-                break;
-        }
+        finish();
     }
-
-
 }

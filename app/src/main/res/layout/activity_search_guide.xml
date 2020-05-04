@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".business.activity.SearchGuideActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="兴趣景点"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp" />
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/fl_local"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:flexDirection="row"
+        app:flexWrap="wrap" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="旅游主题"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp" />
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/fl_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:flexDirection="row"
+        app:flexWrap="wrap" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="穷于经费"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_time_level_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一级" />
+
+        <RadioButton
+            android:id="@+id/rb_time_level_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="二级" />
+
+        <RadioButton
+            android:id="@+id/rb_time_level_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三级" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="穷于时间"
+        android:textColor="@color/color_333333"
+        android:textSize="20sp" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_money_level_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一级" />
+
+        <RadioButton
+            android:id="@+id/rb_money_level_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="二级" />
+
+        <RadioButton
+            android:id="@+id/rb_money_level_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三级" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="25dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="查询"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
