@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".business.activity.GuideSearchResultActivity"></activity>
+        <activity android:name=".business.activity.SelectFriendActivity"></activity>
+        <activity android:name=".business.activity.GuideSearchResultActivity" />
         <activity android:name=".business.activity.SearchGuideActivity" />
         <activity android:name=".business.activity.TravelDiaryDetailActivity" />
         <activity android:name=".business.activity.NewTravelDiaryActivity" />

@@ -11,7 +11,16 @@ public class UserEntity extends BmobUser {
     private String userInfo;
     private int type;  //1,属地志愿者  0.普通用户
     private String local;
+    private String viewsLocal;
 
+
+    public String getViewsLocal() {
+        return viewsLocal;
+    }
+
+    public void setViewsLocal(String viewsLocal) {
+        this.viewsLocal = viewsLocal;
+    }
 
     public String getLocal() {
         return local;
