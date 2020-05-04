@@ -63,7 +63,6 @@ public class UserRegisterActivity extends BaseActivity {
             userEntity.setUsername(userName);
             userEntity.setLocal(userLocal);
             userEntity.setPassword(passWord);
-            userEntity.setUserPassword(passWord);
             userEntity.setMobilePhoneNumber(userPhone);
             userEntity.signUp(new SaveListener<Object>() {
                 @Override

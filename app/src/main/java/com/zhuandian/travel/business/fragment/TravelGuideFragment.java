@@ -1,16 +1,26 @@
 package com.zhuandian.travel.business.fragment;
 
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.travel.R;
+import com.zhuandian.travel.activity.NewTravelGuideActivity;
+import com.zhuandian.travel.adapter.TravelGuideAdapter;
 import com.zhuandian.travel.business.utils.BaseRecyclerView;
+import com.zhuandian.travel.entity.TravelGuideEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 
 /**
@@ -34,9 +44,9 @@ public class TravelGuideFragment extends BaseFragment {
     EditText etKeyword;
     @BindView(R.id.tv_search)
     TextView tvSearch;
-//    private List<LostAndFoundEntity> mDatas = new ArrayList<>();
-//    private LoastAndFoundAdapter loastAndFoundAdapter;
-//    private int currentCount = -10;
+    private List<TravelGuideEntity> mDatas = new ArrayList<>();
+    private TravelGuideAdapter travelGuideAdapter;
+    private int currentCount = -10;
 
     @Override
     protected int getLayoutId() {
@@ -47,10 +57,10 @@ public class TravelGuideFragment extends BaseFragment {
     protected void initView() {
         ivBack.setVisibility(View.GONE);
         tvTitle.setText("旅游攻略");
-//        loastAndFoundAdapter = new LoastAndFoundAdapter(mDatas, actitity);
-//        brvGoodsList.setRecyclerViewAdapter(loastAndFoundAdapter);
-//        loadDatas();
-//        initRefreshListener();
+        travelGuideAdapter = new TravelGuideAdapter(mDatas, actitity);
+        brvGoodsList.setRecyclerViewAdapter(travelGuideAdapter);
+        loadDatas();
+        initRefreshListener();
     }
 
 
@@ -58,9 +68,9 @@ public class TravelGuideFragment extends BaseFragment {
         brvGoodsList.setRefreshListener(new BaseRecyclerView.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                currentCount = -10; //重新置位
-//                mDatas.clear();
-//                loastAndFoundAdapter.notifyDataSetChanged();
+                currentCount = -10; //重新置位
+                mDatas.clear();
+                travelGuideAdapter.notifyDataSetChanged();
                 loadDatas();
 
             }
@@ -77,27 +87,26 @@ public class TravelGuideFragment extends BaseFragment {
 
 
     private void loadDatas() {
-//        currentCount = currentCount + 10;
-//        BmobQuery<LostAndFoundEntity> query = new BmobQuery<>();
-//        query.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
-//        query.order("-updatedAt");
-//        query.addWhereEqualTo("type", 2);
-//        query.setLimit(10);
-//        query.setSkip(currentCount);
-//        query.findObjects(new FindListener<LostAndFoundEntity>() {
-//            @Override
-//            public void done(List<LostAndFoundEntity> list, BmobException e) {
-//                if (e == null) {
-//                    for (int i = 0; i < list.size(); i++) {
-//                        mDatas.add(list.get(i));
-//                    }
-//                    loastAndFoundAdapter.notifyDataSetChanged();
-//                    brvGoodsList.setRefreshLayoutState(false);
-//                } else {
-//                    brvGoodsList.setRefreshLayoutState(false);
-//                }
-//            }
-//        });
+        currentCount = currentCount + 10;
+        BmobQuery<TravelGuideEntity> query = new BmobQuery<>();
+        query.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        query.order("-updatedAt");
+        query.setLimit(10);
+        query.setSkip(currentCount);
+        query.findObjects(new FindListener<TravelGuideEntity>() {
+            @Override
+            public void done(List<TravelGuideEntity> list, BmobException e) {
+                if (e == null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        mDatas.add(list.get(i));
+                    }
+                    travelGuideAdapter.notifyDataSetChanged();
+                    brvGoodsList.setRefreshLayoutState(false);
+                } else {
+                    brvGoodsList.setRefreshLayoutState(false);
+                }
+            }
+        });
     }
 
 
@@ -105,7 +114,7 @@ public class TravelGuideFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_new:
-//                startActivity(new Intent(actitity, ReleaseLostAndFoundActivity.class));
+                startActivity(new Intent(actitity, NewTravelGuideActivity.class));
                 break;
             case R.id.tv_search:
                 String title = etKeyword.getText().toString();
