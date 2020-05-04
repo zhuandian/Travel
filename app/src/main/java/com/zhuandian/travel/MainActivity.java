@@ -14,11 +14,13 @@ import com.zhuandian.travel.business.fragment.TravelDiaryFragment;
 import com.zhuandian.travel.business.fragment.TravelGuideFragment;
 import com.zhuandian.travel.business.fragment.FoodsAndViewsFragment;
 import com.zhuandian.travel.business.fragment.MineFragment;
+import com.zhuandian.travel.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.vp_home)
@@ -38,16 +40,24 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
+
+        UserEntity userEntity = BmobUser.getCurrentUser(UserEntity.class);
         List<BaseFragment> fragmentList = new ArrayList<>();
         fragmentList.add(new FoodsAndViewsFragment());
         fragmentList.add(new TravelGuideFragment());
-        fragmentList.add(new TravelDiaryFragment());
+        if (userEntity.getType()!=1){
+            fragmentList.add(new TravelDiaryFragment());
+        }
         fragmentList.add(new MineFragment());
         vpHome.setAdapter(new HomePageAdapter(getSupportFragmentManager(), fragmentList));
         vpHome.setOffscreenPageLimit(4);
 
         vpHome.setCurrentItem(PAGE_LOST);
         initBottomTab();
+        if (userEntity.getType()==1){
+            tabBottom.getMenu().getItem(2).setVisible(false);
+        }
+
     }
 
     public void setCurrentPage(int position) {

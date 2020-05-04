@@ -73,6 +73,11 @@ public class MineFragment extends BaseFragment {
             tvLocal.setText(userEntity.getLocal());
         }
 
+
+        tvFindHelper.setVisibility(userEntity.getType()!=1?View.VISIBLE: View.GONE);
+        tvMatchFriend.setVisibility(userEntity.getType()!=1?View.VISIBLE: View.GONE);
+        tvSendHelp.setVisibility(userEntity.getType()!=1?View.VISIBLE: View.GONE);
+
     }
 
 

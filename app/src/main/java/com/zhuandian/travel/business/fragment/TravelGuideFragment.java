@@ -13,6 +13,7 @@ import com.zhuandian.travel.adapter.TravelGuideAdapter;
 import com.zhuandian.travel.business.activity.SearchGuideActivity;
 import com.zhuandian.travel.business.utils.BaseRecyclerView;
 import com.zhuandian.travel.entity.TravelGuideEntity;
+import com.zhuandian.travel.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +21,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.util.V;
 
 
 /**
@@ -56,6 +59,8 @@ public class TravelGuideFragment extends BaseFragment {
     protected void initView() {
         ivBack.setVisibility(View.GONE);
         tvTitle.setText("旅游攻略");
+        UserEntity currentUser = BmobUser.getCurrentUser(UserEntity.class);
+        tvNew.setVisibility(currentUser.getType()==1?View.VISIBLE: View.GONE);
         travelGuideAdapter = new TravelGuideAdapter(mDatas, actitity);
         brvGoodsList.setRecyclerViewAdapter(travelGuideAdapter);
         loadDatas();
