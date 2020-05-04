@@ -1,7 +1,10 @@
 package com.zhuandian.travel;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
@@ -14,13 +17,18 @@ import com.zhuandian.travel.business.fragment.TravelDiaryFragment;
 import com.zhuandian.travel.business.fragment.TravelGuideFragment;
 import com.zhuandian.travel.business.fragment.FoodsAndViewsFragment;
 import com.zhuandian.travel.business.fragment.MineFragment;
+import com.zhuandian.travel.entity.SendHelpEntity;
 import com.zhuandian.travel.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.vp_home)
@@ -31,6 +39,7 @@ public class MainActivity extends BaseActivity {
     public static final int PAGE_FOUND = 1;
     public static final int PAGE_TRAVEL = 2;
     public static final int PAGE_MY = 3;
+    private UserEntity userEntity;
 
 
     @Override
@@ -41,7 +50,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setUpView() {
 
-        UserEntity userEntity = BmobUser.getCurrentUser(UserEntity.class);
+         userEntity = BmobUser.getCurrentUser(UserEntity.class);
         List<BaseFragment> fragmentList = new ArrayList<>();
         fragmentList.add(new FoodsAndViewsFragment());
         fragmentList.add(new TravelGuideFragment());
@@ -57,8 +66,9 @@ public class MainActivity extends BaseActivity {
         if (userEntity.getType()==1){
             tabBottom.getMenu().getItem(2).setVisible(false);
         }
-
     }
+
+
 
     public void setCurrentPage(int position) {
         vpHome.setCurrentItem(position);

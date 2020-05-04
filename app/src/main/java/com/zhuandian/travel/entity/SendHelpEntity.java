@@ -11,7 +11,7 @@ public class SendHelpEntity  extends BmobObject {
     private String helperLocal;
     private UserEntity helperUser;
     private int helperLevel;
-    private int helpState; //1.已经有志愿者处理 2.未处理
+    private int helpState; //1.已经有志愿者处理 0.未处理
 
     public int getHelpState() {
         return helpState;
