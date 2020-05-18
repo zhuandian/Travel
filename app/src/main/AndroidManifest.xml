@@ -11,17 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".business.activity.FoodsAndViewsDetailActivity"></activity>
+        <activity android:name=".business.activity.HelperSelectLocalActivity"></activity>
+        <activity android:name=".business.activity.SendHelpActivity" />
+        <activity android:name=".business.activity.FindHelperActivity" />
+        <activity android:name=".business.activity.SelectFriendActivity" />
+        <activity android:name=".business.activity.GuideSearchResultActivity" />
+        <activity android:name=".business.activity.SearchGuideActivity" />
+        <activity android:name=".business.activity.TravelDiaryDetailActivity" />
+        <activity android:name=".business.activity.NewTravelDiaryActivity" />
+        <activity android:name=".business.activity.TravelGuideDetailActivity" />
+        <activity android:name=".business.activity.NewTravelGuideActivity" />
+        <activity android:name=".business.activity.FoodsAndViewsDetailActivity" />
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".business.login.LoginActivity" >
+        <activity android:name=".business.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

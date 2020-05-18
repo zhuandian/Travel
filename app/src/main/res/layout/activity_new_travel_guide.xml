@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".business.activity.NewTravelGuideActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/shape_edittext_bg"
+                android:hint="请输入标题"
+                android:paddingLeft="10dp"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="105dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/shape_edittext_bg"
+                android:gravity="start"
+                android:hint="请输入内容"
+                android:padding="10dp"
+                android:textSize="13dp" />
+
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/ic_add_photo" />
+
+
+            <TextView
+                android:id="@+id/tv_views_local"
+                android:paddingLeft="15dp"
+                android:text="选择景点"
+                android:textSize="15sp"
+                android:textColor="@color/color_333333"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/tv_views_theme"
+                android:paddingLeft="15dp"
+                android:text="选择主题"
+                android:textSize="15sp"
+                android:textColor="@color/color_333333"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/tv_time_level"
+                android:paddingLeft="15dp"
+                android:text="时间等级"
+                android:textSize="15sp"
+                android:textColor="@color/color_333333"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_money_level"
+                android:paddingLeft="15dp"
+                android:text="费用等级"
+                android:textSize="15sp"
+                android:textColor="@color/color_333333"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"/>
+
+
+
+            <TextView
+                android:id="@+id/tv_release"
+                android:text="发布"
+                android:layout_margin="30dp"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/colorPrimary"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

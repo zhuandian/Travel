@@ -1,15 +1,21 @@
 package com.zhuandian.travel.business.fragment;
 
+import android.content.DialogInterface;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.travel.R;
 import com.zhuandian.travel.adapter.FoodsAndViewsAdapter;
 import com.zhuandian.travel.business.utils.BaseRecyclerView;
 import com.zhuandian.travel.entity.FoodsAndViewsEntity;
+import com.zhuandian.travel.entity.SendHelpEntity;
+import com.zhuandian.travel.entity.UserEntity;
 
 
 import java.util.ArrayList;
@@ -18,8 +24,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * desc :
@@ -53,8 +61,45 @@ public class FoodsAndViewsFragment extends BaseFragment {
         brvGoodsList.setRecyclerViewAdapter(loastAndFoundAdapter);
         loadDatas();
         initRefreshListener();
+        handleHelperEvent();
     }
 
+    private void handleHelperEvent() {
+        UserEntity userEntity = BmobUser.getCurrentUser(UserEntity.class);
+        if (userEntity.getType() != 1)
+            return;
+
+        BmobQuery<SendHelpEntity> query = new BmobQuery<>();
+        query.addWhereNotEqualTo("helpState", 1);
+        query.include("helperUser");
+        query.addWhereEqualTo("helperLocal", userEntity.getViewsLocal());
+        query.findObjects(new FindListener<SendHelpEntity>() {
+            @Override
+            public void done(List<SendHelpEntity> list, BmobException e) {
+                if (e == null && list.size() > 0) {
+                    SendHelpEntity helpEntity = list.get(0);
+                    new AlertDialog.Builder(actitity)
+                            .setTitle("有人呼救")
+                            .setMessage("呼救人：\n" + helpEntity.getHelperUser().getUsername() + "\n地点：" + helpEntity.getHelperLocal() + "\n呼救等级:" + helpEntity.getHelperLevel())
+                            .setNegativeButton("去营救", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    helpEntity.setHelpState(1);
+                                    helpEntity.update(new UpdateListener() {
+                                        @Override
+                                        public void done(BmobException e) {
+                                            if (e == null) {
+                                                Toast.makeText(actitity, "请立即前往救助...", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            }).show();
+                }
+            }
+        });
+    }
 
     private void initRefreshListener() {
         brvGoodsList.setRefreshListener(new BaseRecyclerView.OnRefreshListener() {
@@ -64,7 +109,7 @@ public class FoodsAndViewsFragment extends BaseFragment {
                 mDatas.clear();
                 loastAndFoundAdapter.notifyDataSetChanged();
                 loadDatas();
-
+                handleHelperEvent();
             }
         });
         brvGoodsList.setLoadMoreListener(new BaseRecyclerView.OnLoadMoreListener() {

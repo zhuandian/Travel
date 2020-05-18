@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".business.activity.TravelGuideDetailActivity">
+
+    <include layout="@layout/layout_top_bar" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="#00B0FF"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="人文自然-遵义会议"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="safdsdf"
+                android:textColor="@color/color_333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="safdsdf发的发撒的空间费啥的接口返回圣诞节开发哈萨克绝地反击看的撒副科级阿斯蒂芬后就开始打飞机卡萨丁健康快乐很快就好几十开发大海景房卡的康师傅将大幅就看"
+                android:textColor="@color/color_69"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_content"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="时间等级 1级  费用等级二级"
+                android:textColor="@color/color_69"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/iv_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_level"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="15dp"
+                android:src="@color/color_333333" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
