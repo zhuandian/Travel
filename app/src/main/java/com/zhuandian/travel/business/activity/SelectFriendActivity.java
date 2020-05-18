@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -41,8 +42,11 @@ public class SelectFriendActivity extends BaseActivity {
     @Override
     protected void setUpView() {
         tvTitle.setText("匹配旅友");
+        UserEntity currentUser = BmobUser.getCurrentUser(UserEntity.class);
         BmobQuery<UserEntity> query = new BmobQuery<>();
         query.addWhereNotEqualTo("type", 1);
+        query.addWhereEqualTo("gender", currentUser.getGender());
+        query.addWhereEqualTo("matchLocal", currentUser.getMatchLocal());
         query.findObjects(new FindListener<UserEntity>() {
             @Override
             public void done(List<UserEntity> list, BmobException e) {
@@ -59,11 +63,12 @@ public class SelectFriendActivity extends BaseActivity {
                             public void onClick(View v) {
                                 new AlertDialog.Builder(SelectFriendActivity.this)
                                         .setTitle("旅友信息")
-                                        .setMessage("好友名字："+list.get(finalI).getUsername()+"\n"+"电话号码：\n" + list.get(finalI).getMobilePhoneNumber())
+                                        .setMessage("好友名字：" + list.get(finalI).getUsername() + "\n" + "电话号码：\n" + list.get(finalI).getMobilePhoneNumber())
                                         .show();
                             }
                         });
-                        llUserContainer.addView(textView);
+                        if (!list.get(i).getObjectId().equals(currentUser.getObjectId()))
+                            llUserContainer.addView(textView);
                     }
                 }
             }

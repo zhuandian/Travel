@@ -12,7 +12,24 @@ public class UserEntity extends BmobUser {
     private int type;  //1,属地志愿者  0.普通用户
     private String local;
     private String viewsLocal;
+    private String gender;
+    private String matchLocal;
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getMatchLocal() {
+        return matchLocal;
+    }
+
+    public void setMatchLocal(String matchLocal) {
+        this.matchLocal = matchLocal;
+    }
 
     public String getViewsLocal() {
         return viewsLocal;

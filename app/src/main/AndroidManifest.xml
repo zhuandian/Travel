@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".business.activity.HelperSelectLocalActivity"></activity>
+        <activity android:name=".business.activity.SetMathcLimitActivity"></activity>
+        <activity android:name=".business.activity.HelperSelectLocalActivity" />
         <activity android:name=".business.activity.SendHelpActivity" />
         <activity android:name=".business.activity.FindHelperActivity" />
         <activity android:name=".business.activity.SelectFriendActivity" />
