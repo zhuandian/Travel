@@ -72,30 +72,32 @@ public class FoodsAndViewsFragment extends BaseFragment {
         BmobQuery<SendHelpEntity> query = new BmobQuery<>();
         query.addWhereNotEqualTo("helpState", 1);
         query.include("helperUser");
-        query.addWhereEqualTo("helperLocal", userEntity.getViewsLocal());
+//        query.addWhereEqualTo("helperLocal", userEntity.getViewsLocal());
         query.findObjects(new FindListener<SendHelpEntity>() {
             @Override
             public void done(List<SendHelpEntity> list, BmobException e) {
                 if (e == null && list.size() > 0) {
                     SendHelpEntity helpEntity = list.get(0);
-                    new AlertDialog.Builder(actitity)
-                            .setTitle("有人呼救")
-                            .setMessage("呼救人：\n" + helpEntity.getHelperUser().getUsername() + "\n地点：" + helpEntity.getHelperLocal() + "\n呼救等级:" + helpEntity.getHelperLevel())
-                            .setNegativeButton("去营救", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    helpEntity.setHelpState(1);
-                                    helpEntity.update(new UpdateListener() {
-                                        @Override
-                                        public void done(BmobException e) {
-                                            if (e == null) {
-                                                Toast.makeText(actitity, "请立即前往救助...", Toast.LENGTH_SHORT).show();
+                    if (helpEntity.getHelperLevel() == 1 || userEntity.getViewsLocal().equals(helpEntity.getHelperLocal())) {
+                        new AlertDialog.Builder(actitity)
+                                .setTitle("有人呼救")
+                                .setMessage("呼救人：\n" + helpEntity.getHelperUser().getUsername() + "\n地点：" + helpEntity.getHelperLocal() + "\n呼救等级:" + helpEntity.getHelperLevel())
+                                .setNegativeButton("去营救", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        helpEntity.setHelpState(1);
+                                        helpEntity.update(new UpdateListener() {
+                                            @Override
+                                            public void done(BmobException e) {
+                                                if (e == null) {
+                                                    Toast.makeText(actitity, "请立即前往救助...", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                        }
-                                    });
-                                }
-                            }).show();
+                                        });
+                                    }
+                                }).show();
+                    }
                 }
             }
         });
