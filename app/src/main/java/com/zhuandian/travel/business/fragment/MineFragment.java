@@ -113,8 +113,7 @@ public class MineFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_travel_team})
-    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_mathc_limit})
+    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_mathc_limit,R.id.tv_travel_team})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_find_helper:
