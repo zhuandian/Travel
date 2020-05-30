@@ -19,6 +19,7 @@ import com.zhuandian.travel.business.activity.FindHelperActivity;
 import com.zhuandian.travel.business.activity.SelectFriendActivity;
 import com.zhuandian.travel.business.activity.SendHelpActivity;
 import com.zhuandian.travel.business.activity.TravelTeamActivity;
+import com.zhuandian.travel.business.activity.SetMathcLimitActivity;
 import com.zhuandian.travel.business.login.LoginActivity;
 import com.zhuandian.travel.entity.SendHelpEntity;
 import com.zhuandian.travel.entity.UserEntity;
@@ -113,6 +114,7 @@ public class MineFragment extends BaseFragment {
     }
 
     @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_travel_team})
+    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_mathc_limit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_find_helper:
@@ -131,6 +133,9 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.tv_travel_team:
                 startActivity(new Intent(actitity, ChoseLocalActivity.class));
+                break;
+            case R.id.tv_mathc_limit:
+                startActivity(new Intent(actitity, SetMathcLimitActivity.class));
                 break;
         }
     }
