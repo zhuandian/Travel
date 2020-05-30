@@ -48,8 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_name"
                 android:layout_marginLeft="15dp"
-                android:ellipsize="end"
-                android:maxLines="3"
                 android:text="safdsdf发的发撒的空间费啥的接口返回圣诞节开发哈萨克绝地反击看的撒副科级阿斯蒂芬后就开始打飞机卡萨丁健康快乐很快就好几十开发大海景房卡的康师傅将大幅就看"
                 android:textColor="@color/color_69"
                 android:textSize="14sp" />

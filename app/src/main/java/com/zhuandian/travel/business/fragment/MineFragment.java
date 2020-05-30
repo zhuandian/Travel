@@ -14,9 +14,11 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.travel.R;
+import com.zhuandian.travel.business.activity.ChoseLocalActivity;
 import com.zhuandian.travel.business.activity.FindHelperActivity;
 import com.zhuandian.travel.business.activity.SelectFriendActivity;
 import com.zhuandian.travel.business.activity.SendHelpActivity;
+import com.zhuandian.travel.business.activity.TravelTeamActivity;
 import com.zhuandian.travel.business.login.LoginActivity;
 import com.zhuandian.travel.entity.SendHelpEntity;
 import com.zhuandian.travel.entity.UserEntity;
@@ -110,7 +112,7 @@ public class MineFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout})
+    @OnClick({R.id.tv_find_helper, R.id.tv_match_friend, R.id.tv_send_help, R.id.tv_logout,R.id.tv_travel_team})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_find_helper:
@@ -126,6 +128,9 @@ public class MineFragment extends BaseFragment {
                 startActivity(new Intent(actitity, LoginActivity.class));
                 BmobUser.logOut();
                 actitity.finish();
+                break;
+            case R.id.tv_travel_team:
+                startActivity(new Intent(actitity, ChoseLocalActivity.class));
                 break;
         }
     }

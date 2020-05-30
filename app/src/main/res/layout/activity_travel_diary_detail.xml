@@ -34,8 +34,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:ellipsize="end"
-                android:maxLines="3"
                 android:text="fsdasdjkalfsdalkfsdlakjfslkdjflksadjflksad考虑到萨放假了疯狂夺金李开复撒讲道理了开发商大家弗兰克斯大家发了可视对讲埃里克开理发师建档立卡福建省大开了房鲁大师看风景时口袋里放两节课啥大件弗兰克斯大吉"
                 android:textColor="@color/color_69"
                 android:textSize="14sp" />

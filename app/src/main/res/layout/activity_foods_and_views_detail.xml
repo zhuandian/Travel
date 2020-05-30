@@ -42,8 +42,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_item_title"
                     android:layout_marginLeft="10dp"
-                    android:ellipsize="end"
-                    android:maxLines="3"
                     android:text="asdkljklfs的健身卡了就看了东方斯卡拉打飞机撒地方克里斯朵夫监考老师是肯德基山东快书卡斯蒂略adklfsad"
                     android:textColor="@color/color_69"
                     android:textSize="14sp" />
